@@ -1,0 +1,35 @@
+.frame
+    width: 100%
+    max-width: 960px
+    margin: 0 auto 1rem auto
+
+    .container
+        display: flex
+        flex-flow: column
+        align-items: center
+        background-color: #414141
+        border-bottom-left-radius: 0.5rem
+        border-bottom-right-radius: 0.5rem
+
+        h1
+            width: 100%
+            text-align: center
+            border-bottom: 1px solid yellow
+
+        .controls
+            display: flex
+            flex-flow: row
+            justify-content: space-around
+            width: 100%
+
+            div
+                padding: 1rem
+                background-color: #313131
+                border: 1px solid #313131
+                border-radius: 0.5rem
+                cursor: pointer
+                margin-bottom: 1rem
+                transition: all 200ms
+
+                &:hover
+                    border: 1px solid yellow

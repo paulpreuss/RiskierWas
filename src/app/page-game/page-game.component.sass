@@ -1,0 +1,41 @@
+.frame
+    width: 100%
+    max-width: 960px
+    margin: 0 auto 0 auto
+
+    .container
+        display: flex
+        flex-flow: row
+        background-color: #414141
+        border-radius: 0.5rem
+
+        .col20
+            width: 20%
+            border-right: 1px solid yellow
+            padding: 1rem
+
+            .buttonbox
+                display: flex
+                flex-direction: row
+                justify-content: flex-end
+
+                .button
+                    border-radius: 0.5rem
+                    width: 2rem
+                    height: 2rem
+                    background-color: #313131
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    cursor: pointer
+                    transition: all 200ms
+
+                    &:hover
+                        border: 1px solid yellow
+
+                .add
+                    margin-right: 0.5rem
+
+        .col80
+            width: 80%
+            padding: 1rem 1rem 0.5rem 1rem

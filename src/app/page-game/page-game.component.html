@@ -1,0 +1,14 @@
+<div class="frame">
+    <div class="container">
+        <div class="col20">
+            <app-template-group [group]="group" *ngFor="let group of groups"></app-template-group>
+            <div class="buttonbox">
+                <div class="button add" (click)="add()">+</div>
+                <div class="button" (click)="remove()">-</div>
+            </div>
+        </div>
+        <div class="col80">
+            <app-template-question (questionPing)="ckeckAnswer($event)" [question]="activeQuestion"></app-template-question>
+        </div>
+    </div>
+</div>
