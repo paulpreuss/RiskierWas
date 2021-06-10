@@ -1,4 +1,9 @@
 <div class="frame">
+    <div class="controls">
+        <div (click)="overrideScore(); goToNextGroup()">Weitergeben</div>
+        <div>Spiel starten</div>
+        <div (click)="goToNextQuestion()">Neue Frage</div>
+    </div>
     <div class="container">
         <div class="col20">
             <app-template-group [group]="group" *ngFor="let group of groups"></app-template-group>

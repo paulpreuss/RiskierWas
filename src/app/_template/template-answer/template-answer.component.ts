@@ -12,6 +12,7 @@ export class TemplateAnswerComponent implements OnInit {
   @Input() answer: Answer;
   @Output() answerPing: EventEmitter<any> = new EventEmitter<any>();
   color: string;
+  comment: string;
 
   constructor() { 
     this.color = '#313131';
@@ -21,16 +22,20 @@ export class TemplateAnswerComponent implements OnInit {
   }
 
   public checkAnswer(): void {
-    if (this.answer.correct) {
-      this.color = 'green';
-    } else {
-      this.color = 'red';
-    }
-
+    this.reveal();
     const eventObject: Answerping = {
       label: 'checkanswer',
       answer: this.answer
     }
     this.answerPing.emit(eventObject);
+  }
+
+  public reveal(): void {
+    if (this.answer.correct) {
+      this.color = 'green';
+    } else {
+      this.color = 'red';
+    }
+    this.comment = this.answer.comment;
   }
 }
