@@ -20,7 +20,7 @@ export class PageGameComponent implements OnInit {
       { id: 2, score: 0, roundScore: 0, active: false }
     ];
     this.questions = this.loadQuestions();
-    this.activeQuestion = this.questions[0];
+    this.activeQuestion = this.questions[9];
   }
 
   ngOnInit(): void {
