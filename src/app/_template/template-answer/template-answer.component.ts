@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Answer } from 'src/app/_interface/answer';
 import { Answerping } from 'src/app/_interface/answerping';
+import { Question } from 'src/app/_interface/question';
 
 @Component({
   selector: 'app-template-answer',
@@ -10,6 +11,7 @@ import { Answerping } from 'src/app/_interface/answerping';
 export class TemplateAnswerComponent implements OnInit {
 
   @Input() answer: Answer;
+  @Input() parentQuestion: Question;
   @Output() answerPing: EventEmitter<any> = new EventEmitter<any>();
   color: string;
   comment: string;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Answerping } from 'src/app/_interface/answerping';
 import { Question } from '../../_interface/question';
 
@@ -18,6 +18,13 @@ export class TemplateQuestionComponent implements OnInit {
   }
 
   public checkAnswer(event?: Answerping): void {
+    if (event.answer.correct) {
+      this.question.answersCorrect--;
+    }
+
+    if (this.question.answersCorrect == 0) {
+
+    }
     this.questionPing.emit(event);
   }
 }

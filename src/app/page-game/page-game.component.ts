@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Answerping } from '../_interface/answerping';
 import { Group } from '../_interface/group';
 import { Question } from '../_interface/question';
@@ -13,8 +14,9 @@ export class PageGameComponent implements OnInit {
   groups: Group[];
   questions: Question[];
   activeQuestion: Question;
+  uri: SafeUrl;
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     this.groups = [
       { id: 1, score: 0, roundScore: 0, active: true },
       { id: 2, score: 0, roundScore: 0, active: false }
@@ -89,6 +91,15 @@ export class PageGameComponent implements OnInit {
       }
     }
   }
+
+  public finishGame(): void {
+    for (let i = 0; i < this.groups.length; i++) {
+      
+    }
+    var theJSON = JSON.stringify(this.groups);
+    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
+    this.uri = uri;
+}
 
   private loadQuestions(): Question[] {
     return [

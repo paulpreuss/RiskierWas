@@ -1,7 +1,8 @@
 <div class="frame">
     <div class="controls">
         <div (click)="overrideScore(); goToNextGroup()">Weitergeben</div>
-        <div>Spiel starten</div>
+        <div (click)="finishGame()">Spiel auswerten</div>
+        <a class="btn btn-clear" title="Download JSON" [href]="uri" download="download.json">Download</a>
         <div (click)="goToNextQuestion()">Neue Frage</div>
     </div>
     <div class="container">

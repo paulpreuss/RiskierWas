@@ -1,6 +1,6 @@
 <div class="container">
     <div class="question">{{ question.label }}</div>
     <div class="answers">
-        <app-template-answer (answerPing)="checkAnswer($event)" [answer]="answer" *ngFor="let answer of question.answers"></app-template-answer>
+        <app-template-answer (answerPing)="checkAnswer($event)" [answer]="answer" [parentQuestion]="question" *ngFor="let answer of question.answers"></app-template-answer>
     </div>
 </div>
