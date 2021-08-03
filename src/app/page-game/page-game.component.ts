@@ -22,7 +22,7 @@ export class PageGameComponent implements OnInit {
       { id: 2, score: 0, roundScore: 0, active: false }
     ];
     this.questions = this.loadQuestions();
-    this.activeQuestion = this.questions[9];
+    this.activeQuestion = this.questions[10];
   }
 
   ngOnInit(): void {
@@ -65,6 +65,9 @@ export class PageGameComponent implements OnInit {
   }
 
   public goToNextQuestion(): void {
+    if (this.questions.length > 1) {
+      this.questions.splice(this.questions.indexOf(this.activeQuestion), 1);
+    }
     let num = Math.floor(Math.random() * (this.questions.length -1));
     this.activeQuestion = this.questions[num];
   }
@@ -971,7 +974,965 @@ export class PageGameComponent implements OnInit {
         }
         ],
         answersCorrect: 12
+      },
+      {
+        id: 99,
+        label: 'Beispielfrage',
+        answers: [
+        {
+          label: 'false',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'false',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'false',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'false',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'true',
+          correct: true,
+          comment: ''
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 11,
+        label: 'Welche Namen gehören Inselgruppen?',
+        answers: [
+        {
+          label: 'Azoren',
+          correct: true,
+          comment: 'zu Portugal: 9 Inseln im Atlantik'
+        },
+        {
+          label: 'Balearen',
+          correct: true,
+          comment: 'zu Spanien: 4 Inseln im Mittelmeer'
+        },
+        {
+          label: 'Bengalen',
+          correct: false,
+          comment: 'Landschaft in Indien'
+        },
+        {
+          label: 'Hebriden',
+          correct: true,
+          comment: 'zu Schottland: ca. 500 Inseln im Atlantik'
+        },
+        {
+          label: 'Karawanken',
+          correct: false,
+          comment: 'Gebirge bis 2238m (Österreich/Kroatien)'
+        },
+        {
+          label: 'Komoren',
+          correct: true,
+          comment: 'eigene Republik im indischen Ozean'
+        },
+        {
+          label: 'Kordilleren',
+          correct: false,
+          comment: 'Gebirge in Amerika'
+        },
+        {
+          label: 'Kurilen',
+          correct: true,
+          comment: 'zu Russland: NW von Japan im Pazifik'
+        },
+        {
+          label: 'Kykladen',
+          correct: true,
+          comment: 'zu Griechenland: ca. 200 Inseln im Mittelmeer'
+        },
+        {
+          label: 'Lakkadiven',
+          correct: true,
+          comment: 'indische Koralleninseln im indischen Ozean'
+        },
+        {
+          label: 'Lofoten',
+          correct: true,
+          comment: 'zu Norwegen: nördlich des Polarkreises im Atlantik'
+        },
+        {
+          label: 'Malediven',
+          correct: true,
+          comment: 'igene Republik SW von Sri Lanka im ind. Ozean'
+        },
+        {
+          label: 'Molukken',
+          correct: true,
+          comment: 'zu Indonesien westlich von Neuguinea im Pazifik'
+        },
+        {
+          label: 'Seychellen',
+          correct: true,
+          comment: 'eigene Republik nördlich von Madagaskar im ind. Ozean'
+        },
+        {
+          label: 'Sporaden',
+          correct: true,
+          comment: 'zu Griechenland: Inseln in der Ägäis (Mittelmeer)'
+        },
+        {
+          label: 'Tamilen',
+          correct: false,
+          comment: 'Volksstamm in Indien'
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 12,
+        label: 'In welchen Staatsflaggen ist die Farbe ""Rot"" enthalten?',
+        answers: [
+        {
+          label: 'Afghanistan',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Albanien',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Andorra',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Griechenland',
+          correct: false,
+          comment: 'Blau mit Kreuz'
+        },
+        {
+          label: 'Indien',
+          correct: false,
+          comment: 'Orange, Weiss, Grün'
+        },
+        {
+          label: 'Indonesien',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Israel',
+          correct: false,
+          comment: 'Blau mit Stern'
+        },
+        {
+          label: 'Monaco',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Norwegen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Österreich',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Pakistan',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'Philippinen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Polen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Süd Korea',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Thailand',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Ungarn',
+          correct: true,
+          comment: ''
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 13,
+        label: 'Welche Namen gehören zu Volksgruppen?',
+        answers: [
+        {
+          label: 'Angolonen',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'Esten',
+          correct: true,
+          comment: 'Esland'
+        },
+        {
+          label: 'Flamen',
+          correct: true,
+          comment: 'Belgien'
+        },
+        {
+          label: 'Haschimiden',
+          correct: true,
+          comment: 'Jordanien'
+        },
+        {
+          label: 'Inka',
+          correct: true,
+          comment: 'Peru'
+        },
+        {
+          label: 'Kasachstanier',
+          correct: false,
+          comment: 'heißen: Kasachen'
+        },
+        {
+          label: 'Khmer',
+          correct: true,
+          comment: 'aus Kambotscha'
+        },
+        {
+          label: 'Milagenen',
+          correct: false,
+          comment: 'Blödsinn'
+        },
+        {
+          label: 'Mongolen',
+          correct: true,
+          comment: 'Mongolei'
+        },
+        {
+          label: 'Osseten',
+          correct: true,
+          comment: 'aus Georgien'
+        },
+        {
+          label: 'Perser',
+          correct: true,
+          comment: 'Iran'
+        },
+        {
+          label: 'Singhalesen',
+          correct: true,
+          comment: 'Sri Lanka'
+        },
+        {
+          label: 'Sorben',
+          correct: true,
+          comment: 'slavische Volksgruppe'
+        },
+        {
+          label: 'Thainesen',
+          correct: false,
+          comment: 'Siamesen oder Thai'
+        },
+        {
+          label: 'Waliser',
+          correct: true,
+          comment: 'Wales'
+        },
+        {
+          label: 'Wallonen',
+          correct: true,
+          comment: 'Südbelgier'
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 14,
+        label: 'Welche Tiere haben mehr als 15 Jahre Lebenserwartung?',
+        answers: [
+        {
+          label: 'Amsel',
+          correct: true,
+          comment: '20 Jahre'
+        },
+        {
+          label: 'Auster',
+          correct: false,
+          comment: '10 Jahre'
+        },
+        {
+          label: 'Biber',
+          correct: true,
+          comment: '15-25 Jahre'
+        },
+        {
+          label: 'Blindschleiche',
+          correct: true,
+          comment: '30 Jahre'
+        },
+        {
+          label: 'Eichhörnchen',
+          correct: false,
+          comment: '8-12 Jahre'
+        },
+        {
+          label: 'Fuchs',
+          correct: false,
+          comment: '10-12 Jahre'
+        },
+        {
+          label: 'Haushund',
+          correct: true,
+          comment: '15-18 Jahre'
+        },
+        {
+          label: 'Hausschaf',
+          correct: false,
+          comment: '14 Jahre'
+        },
+        {
+          label: 'Hering',
+          correct: true,
+          comment: '18 Jahre'
+        },
+        {
+          label: 'Kanarienvogel',
+          correct: true,
+          comment: '24 Jahre'
+        },
+        {
+          label: 'Maikäfer',
+          correct: false,
+          comment: '3-4 Jahre'
+        },
+        {
+          label: 'Meerschweinchen',
+          correct: false,
+          comment: '7 Jahre'
+        },
+        {
+          label: 'Möwe',
+          correct: true,
+          comment: '30 Jahre'
+        },
+        {
+          label: 'Regenwurm',
+          correct: false,
+          comment: '8 Jahre'
+        },
+        {
+          label: 'Reh',
+          correct: false,
+          comment: '10-12 Jahre'
+        },
+        {
+          label: 'Wellensittich',
+          correct: false,
+          comment: '10-13 Jahre'
+        }
+        ],
+        answersCorrect: 7
+      },
+      {
+        id: 15,
+        label: 'Welche dieser Personen stammen aus dem Alten Testament?',
+        answers: [
+        {
+          label: 'Aaron',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Absalom',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Benjamin',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Elia',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Esau',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Hiob',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Kain',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Lazarus',
+          correct: false,
+          comment: 'Neues Testament'
+        },
+        {
+          label: 'Lot',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Martha',
+          correct: false,
+          comment: 'Neues Testament'
+        },
+        {
+          label: 'Nikodemus',
+          correct: false,
+          comment: 'Neues Testament'
+        },
+        {
+          label: 'Noah',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Ruth',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Samuel',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Saul',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Zachäus',
+          correct: false,
+          comment: 'Neues Testament'
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 16,
+        label: 'Wobei handelt es sich um Figuren von Walt Disney?',
+        answers: [
+        {
+          label: 'A-Hörnchen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Balou',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Bambi',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Bernhard',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Dagobert Duck',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Daniel Düsentrieb',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Foxi',
+          correct: false,
+          comment: 'Ralf Kauka'
+        },
+        {
+          label: 'Fred Feuerstein',
+          correct: false,
+          comment: 'Flintstones'
+        },
+        {
+          label: 'Goofy',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Idefix',
+          correct: false,
+          comment: 'Uderzo'
+        },
+        {
+          label: 'Kater Carlo',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Lupo',
+          correct: false,
+          comment: 'Ralf Kauka'
+        },
+        {
+          label: 'Mogli',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Orville',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Pluto',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Shirkan',
+          correct: true,
+          comment: ''
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 17,
+        label: 'Wobei handelt es sich um Edelsteine?',
+        answers: [
+        {
+          label: 'Achat',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Alexandrit',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Amethyst',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Aquamarin',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Aureole',
+          correct: false,
+          comment: 'Heiligenschein'
+        },
+        {
+          label: 'Bergkristall',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Bernstein',
+          correct: false,
+          comment: 'Harz'
+        },
+        {
+          label: 'Diamant',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Gold',
+          correct: false,
+          comment: 'Metall'
+        },
+        {
+          label: 'Koralle',
+          correct: false,
+          comment: 'Lebewesen'
+        },
+        {
+          label: 'Onyx',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Opal',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Rubin',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Saphir',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Smaragd',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Topas',
+          correct: true,
+          comment: ''
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 18,
+        label: 'Wobei handelt es sich um Märchen der Gebrüder Grimm?',
+        answers: [
+        {
+          label: 'Aschenputtel',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Das hässliche Entlein',
+          correct: false,
+          comment: 'Hans-Christian Andersen'
+        },
+        {
+          label: 'Das tapfere Schneiderlein',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Der Fischer und seine Frau',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Der Froschkönig',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Der gestiefelte Kater',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Die fromme Helene',
+          correct: false,
+          comment: 'Wilhelm Busch'
+        },
+        {
+          label: 'Die sieben Schwaben',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Dornröschen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Hase und Igel',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'König Drosselbart',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Rumpelstilzchen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Schneewittchen',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Sindbad, der Seefahrer',
+          correct: false,
+          comment: '1001 Nacht'
+        },
+        {
+          label: 'Sterntaler',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Zwerg Nase',
+          correct: false,
+          comment: 'Wilhelm Hauff'
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 19,
+        label: 'Welches sind Straßen aus dem Original Monopoly-Spiel?',
+        answers: [
+        {
+          label: 'Badstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Bismarckstraße',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'Elisenstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Kaiserstraße',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'Lessingstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Luisenstraße',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'Museumsstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Opernplatz',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Pariser Platz',
+          correct: false,
+          comment: ''
+        },
+        {
+          label: 'Parkstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Poststraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Rathausstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Schlossallee',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Seestraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Turmstraße',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Wiener Straße',
+          correct: true,
+          comment: ''
+        }
+        ],
+        answersCorrect: 12
+      },
+      {
+        id: 20,
+        label: 'Wobei handelt es sich um IKEA Möbel?',
+        answers: [
+        {
+          label: 'Billy',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Bonde',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Brekke',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Ektorp',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Fridolf',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Ingolf',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Leksvik',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Markör',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Poäng',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Rille',
+          correct: false,
+          comment: 'Blödsinn'
+        },
+        {
+          label: 'Sjö',
+          correct: false,
+          comment: 'See'
+        },
+        {
+          label: 'Sofaeck',
+          correct: false,
+          comment: 'es gibt zwar Ecksofas - die heißen aber nicht Sofaeck'
+        },
+        {
+          label: 'Stipa',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Stulle',
+          correct: false,
+          comment: 'Synonym für eine Scheibe Brot'
+        },
+        {
+          label: 'Tylösand',
+          correct: true,
+          comment: ''
+        },
+        {
+          label: 'Värde',
+          correct: true,
+          comment: ''
+        }
+        ],
+        answersCorrect: 12
       }
+    
     ];
   }
 }
