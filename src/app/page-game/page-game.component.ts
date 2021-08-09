@@ -19,6 +19,7 @@ export class PageGameComponent implements OnInit {
   activeQuestion: Question;
   uri: SafeUrl;
   ingame: boolean;
+  gameState: string;
 
   @ViewChild(TemplateQuestionComponent) questionComponent: TemplateQuestionComponent;
 
@@ -32,6 +33,7 @@ export class PageGameComponent implements OnInit {
     this.totalAmountOfQuestions = this.questions.length;
     this.questionsSolved = 0;
     this.ingame = false;
+    this.gameState = "Spiel läuft nicht";
   }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class PageGameComponent implements OnInit {
     if (!this.ingame) {
       this.ingame = true;
       this.questionComponent.startGame();
+      this.gameState = "Spiel läuft";
     }
   }
 
@@ -130,6 +133,7 @@ export class PageGameComponent implements OnInit {
       this.uri = uri;
       this.ingame = false;
       this.questionComponent.finishGame();
+      this.gameState = "Spiel beendet"
     }
 }
 
