@@ -15,6 +15,9 @@
             </div>
         </div>
         <div class="col80">
+            <div class="stats">
+                <div class="question-counter">{{ questionsSolved }} / {{ totalAmountOfQuestions }}</div>
+            </div>
             <app-template-question (questionPing)="ckeckAnswer($event)" [question]="activeQuestion"></app-template-question>
         </div>
     </div>

@@ -14,9 +14,12 @@ export class PageGameComponent implements OnInit {
 
   groups: Group[];
   questions: Question[];
+  totalAmountOfQuestions: number;
+  questionsSolved: number;
   activeQuestion: Question;
   uri: SafeUrl;
   ingame: boolean;
+
   @ViewChild(TemplateQuestionComponent) questionComponent: TemplateQuestionComponent;
 
   constructor(private sanitizer: DomSanitizer) {
@@ -26,6 +29,8 @@ export class PageGameComponent implements OnInit {
     ];
     this.questions = this.loadQuestions();
     this.activeQuestion = this.questions[10];
+    this.totalAmountOfQuestions = this.questions.length;
+    this.questionsSolved = 0;
     this.ingame = false;
   }
 
@@ -87,6 +92,7 @@ export class PageGameComponent implements OnInit {
       }
       let num = Math.floor(Math.random() * (this.questions.length -1));
       this.activeQuestion = this.questions[num];
+      this.questionsSolved ++;
     }
   }
 
