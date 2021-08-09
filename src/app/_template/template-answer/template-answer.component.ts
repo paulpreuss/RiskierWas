@@ -15,29 +15,43 @@ export class TemplateAnswerComponent implements OnInit {
   @Output() answerPing: EventEmitter<any> = new EventEmitter<any>();
   color: string;
   comment: string;
+  ingame: boolean;
 
   constructor() { 
     this.color = '#313131';
+    this.ingame = false;
   }
 
   ngOnInit(): void {
   }
 
+  public startGame(): void {
+    this.ingame = true;
+  }
+
+  public finishGame(): void {
+    this.ingame = false;
+  }
+
   public checkAnswer(): void {
-    this.reveal();
-    const eventObject: Answerping = {
-      label: 'checkanswer',
-      answer: this.answer
+    if (this.ingame) {
+      this.reveal();
+      const eventObject: Answerping = {
+        label: 'checkanswer',
+        answer: this.answer
+      }
+      this.answerPing.emit(eventObject);
     }
-    this.answerPing.emit(eventObject);
   }
 
   public reveal(): void {
-    if (this.answer.correct) {
-      this.color = 'green';
-    } else {
-      this.color = 'red';
+    if (this.ingame) {
+      if (this.answer.correct) {
+        this.color = 'green';
+      } else {
+        this.color = 'red';
+      }
+      this.comment = this.answer.comment;
     }
-    this.comment = this.answer.comment;
   }
 }

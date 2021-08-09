@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Answerping } from '../_interface/answerping';
 import { Group } from '../_interface/group';
 import { Question } from '../_interface/question';
+import { TemplateQuestionComponent } from '../_template/template-question/template-question.component';
 
 @Component({
   selector: 'app-page-game',
@@ -15,6 +16,8 @@ export class PageGameComponent implements OnInit {
   questions: Question[];
   activeQuestion: Question;
   uri: SafeUrl;
+  ingame: boolean;
+  @ViewChild(TemplateQuestionComponent) questionComponent: TemplateQuestionComponent;
 
   constructor(private sanitizer: DomSanitizer) {
     this.groups = [
@@ -23,85 +26,105 @@ export class PageGameComponent implements OnInit {
     ];
     this.questions = this.loadQuestions();
     this.activeQuestion = this.questions[10];
+    this.ingame = false;
   }
 
   ngOnInit(): void {
   }
 
+  public startGame(): void {
+    if (!this.ingame) {
+      this.ingame = true;
+      this.questionComponent.startGame();
+    }
+  }
 
   public add(): void {
-    this.groups.push(
-      {
-        id: this.groups.length + 1,
-        score: 0,
-        roundScore: 0,
-        active: false
-      }
-    );
+    if (!this.ingame) {
+      this.groups.push(
+        {
+          id: this.groups.length + 1,
+          score: 0,
+          roundScore: 0,
+          active: false
+        }
+      );
+    }
   }
 
   public remove(): void {
-    if (this.groups.length > 2) {
-      this.groups.pop();
+    if (!this.ingame) {
+      if (this.groups.length > 2) {
+        this.groups.pop();
+      }
     }
   }
 
   public ckeckAnswer(event?: Answerping): void {
     let answerWasCorrect = true;
-    this.groups.forEach(group => {
-      if (group.active) {
-        if (event.answer.correct) {
-          group.roundScore += 100;
+    if (this.ingame) {
+      this.groups.forEach(group => {
+        if (group.active) {
+          if (event.answer.correct) {
+            group.roundScore += 100;
+          }
+          else {
+            group.roundScore = 0;
+            answerWasCorrect = false;
+          }
         }
-        else {
-          group.roundScore = 0;
-          answerWasCorrect = false;
-        }
+      });
+      if (!answerWasCorrect) {
+        this.goToNextGroup();
       }
-    });
-    if (!answerWasCorrect) {
-      this.goToNextGroup();
     }
   }
 
   public goToNextQuestion(): void {
-    if (this.questions.length > 1) {
-      this.questions.splice(this.questions.indexOf(this.activeQuestion), 1);
+    if (this.ingame) {
+      if (this.questions.length > 1) {
+        this.questions.splice(this.questions.indexOf(this.activeQuestion), 1);
+      }
+      let num = Math.floor(Math.random() * (this.questions.length -1));
+      this.activeQuestion = this.questions[num];
     }
-    let num = Math.floor(Math.random() * (this.questions.length -1));
-    this.activeQuestion = this.questions[num];
   }
 
   public goToNextGroup(): void {
-    for (let i = 0; i < this.groups.length; i++) {
-      if (this.groups[i].active) {
-        this.groups[i].active = false;
-        if (i +1 == this.groups.length) {
-          this.groups[0].active = true;
-        } else {
-          this.groups[i + 1].active = true;
+    if (this.ingame) {
+      for (let i = 0; i < this.groups.length; i++) {
+        if (this.groups[i].active) {
+          this.groups[i].active = false;
+          if (i +1 == this.groups.length) {
+            this.groups[0].active = true;
+          } else {
+            this.groups[i + 1].active = true;
+          }
+          break;
         }
-        break;
       }
     }
   }
 
   public overrideScore() : void {
-    for (let i = 0; i < this.groups.length; i++) {
-      if (this.groups[i].active) {
-        this.groups[i].score += this.groups[i].roundScore;
-        this.groups[i].roundScore = 0;
+    if (this.ingame) {
+      for (let i = 0; i < this.groups.length; i++) {
+        if (this.groups[i].active) {
+          this.groups[i].score += this.groups[i].roundScore;
+          this.groups[i].roundScore = 0;
+        }
       }
     }
   }
 
   public finishGame(): void {
-    for (let i = 0; i < this.groups.length; i++) {
-      
+    if (this.ingame) {
+      var theJSON = JSON.stringify(this.groups);
+      var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
+      this.uri = uri;
+      this.ingame = false;
+      this.questionComponent.finishGame();
     }
-    var theJSON = JSON.stringify(this.groups);
-    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
-    this.uri = uri;
 }
 
   private loadQuestions(): Question[] {
