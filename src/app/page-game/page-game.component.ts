@@ -1931,8 +1931,13 @@ export class PageGameComponent implements OnInit {
         }
         ],
         answersCorrect: 12
+      },
+      {
+        id: 21,
+        label: 'Vielen Dank fürs spielen!',
+        answers: [],
+        answersCorrect: 12
       }
-    
     ];
   }
 }
