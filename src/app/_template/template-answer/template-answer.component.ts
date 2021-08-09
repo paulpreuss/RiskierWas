@@ -16,10 +16,12 @@ export class TemplateAnswerComponent implements OnInit {
   color: string;
   comment: string;
   ingame: boolean;
+  solved: boolean;
 
   constructor() { 
     this.color = '#313131';
     this.ingame = false;
+    this.solved = false;
   }
 
   ngOnInit(): void {
@@ -35,12 +37,15 @@ export class TemplateAnswerComponent implements OnInit {
 
   public checkAnswer(): void {
     if (this.ingame) {
-      this.reveal();
-      const eventObject: Answerping = {
-        label: 'checkanswer',
-        answer: this.answer
+      if (!this.solved) {
+        this.reveal();
+        const eventObject: Answerping = {
+          label: 'checkanswer',
+          answer: this.answer
+        }
+        this.answerPing.emit(eventObject);
+        this.solved = true;
       }
-      this.answerPing.emit(eventObject);
     }
   }
 
