@@ -14,27 +14,12 @@ export class TemplateQuestionComponent implements OnInit {
   @Output() questionPing: EventEmitter<any> = new EventEmitter<any>();
   @ViewChildren(TemplateAnswerComponent) answers: QueryList<TemplateAnswerComponent>;
 
-  ingame: boolean;
+  @Input() ingame: boolean;
 
   constructor() {
-    this.ingame = false;
   }
 
   ngOnInit(): void {
-  }
-
-  public startGame() {
-    this.ingame = true;
-    this.answers.forEach(instance => {
-      instance.startGame();
-    });
-  }
-
-  public finishGame() {
-    this.ingame = false;
-    this.answers.forEach(instance => {
-      instance.finishGame();
-    });
   }
 
   public checkAnswer(event?: Answerping): void {

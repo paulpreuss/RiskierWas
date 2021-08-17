@@ -26,7 +26,9 @@ export class PageGameComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {
     this.groups = [
       { id: 1, score: 0, roundScore: 0, active: true },
-      { id: 2, score: 0, roundScore: 0, active: false }
+      { id: 2, score: 0, roundScore: 0, active: false },
+      { id: 3, score: 0, roundScore: 0, active: false },
+      { id: 4, score: 0, roundScore: 0, active: false }
     ];
     this.questions = this.loadQuestions();
     this.activeQuestion = this.questions[10];
@@ -42,7 +44,6 @@ export class PageGameComponent implements OnInit {
   public startGame(): void {
     if (!this.ingame) {
       this.ingame = true;
-      this.questionComponent.startGame();
       this.gameState = "Spiel läuft";
     }
   }
@@ -132,7 +133,6 @@ export class PageGameComponent implements OnInit {
       var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
       this.uri = uri;
       this.ingame = false;
-      this.questionComponent.finishGame();
       this.gameState = "Spiel beendet"
     }
 }
@@ -465,7 +465,7 @@ export class PageGameComponent implements OnInit {
         },
         {
           label: 'Singapur',
-          correct: false,
+          correct: true,
           comment: '648 km²'
         },
         {

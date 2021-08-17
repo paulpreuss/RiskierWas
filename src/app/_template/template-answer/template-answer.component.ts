@@ -15,24 +15,15 @@ export class TemplateAnswerComponent implements OnInit {
   @Output() answerPing: EventEmitter<any> = new EventEmitter<any>();
   color: string;
   comment: string;
-  ingame: boolean;
+  @Input() ingame: boolean;
   solved: boolean;
 
   constructor() { 
     this.color = '#313131';
-    this.ingame = false;
     this.solved = false;
   }
 
   ngOnInit(): void {
-  }
-
-  public startGame(): void {
-    this.ingame = true;
-  }
-
-  public finishGame(): void {
-    this.ingame = false;
   }
 
   public checkAnswer(): void {
@@ -44,9 +35,9 @@ export class TemplateAnswerComponent implements OnInit {
           answer: this.answer
         }
         this.answerPing.emit(eventObject);
-        this.solved = true;
       }
     }
+    console.log(this.ingame);
   }
 
   public reveal(): void {
@@ -57,6 +48,7 @@ export class TemplateAnswerComponent implements OnInit {
         this.color = 'red';
       }
       this.comment = this.answer.comment;
+      this.solved = true;
     }
   }
 }
