@@ -256,7 +256,7 @@ export class PageGameComponent implements OnInit {
         },
         {
           label: 'Gold',
-          correct: false,
+          correct: true,
           comment: '1063 °C'
         },
         {
@@ -1362,13 +1362,13 @@ export class PageGameComponent implements OnInit {
         answers: [
         {
           label: 'Amsel',
-          correct: true,
-          comment: '20 Jahre'
+          correct: false,
+          comment: '5 Jahre'
         },
         {
           label: 'Auster',
-          correct: false,
-          comment: '10 Jahre'
+          correct: true,
+          comment: '20-30 Jahre'
         },
         {
           label: 'Biber',
