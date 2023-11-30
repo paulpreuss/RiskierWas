@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "riskier-was:build"
+            "buildTarget": "riskier-was:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "riskier-was:build:production"
+              "buildTarget": "riskier-was:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "riskier-was:build"
+            "buildTarget": "riskier-was:build"
           }
         },
         "test": {
